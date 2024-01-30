@@ -1,0 +1,28 @@
+<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center" th:fragment="navbar"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+		<div class="container d-flex align-items-center justify-content-between">
+
+			<div class="logo">
+				<a href="index.html"><img src="/img/logo.png" alt="young assets foundation"></a>
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			</div>
+
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto active" href="/">Home</a></li>
+					<li><a class="nav-link scrollto" th:href="@{/about}">About Us</a></li>
+					<li><a class="nav-link scrollto" th:href="@{/programs}">Programs</a></li>
+					<li><a class="nav-link scrollto " th:href="@{/publication}">Publications</a></li>
+					<li><a class="nav-link scrollto" th:href="@{/event}">Event</a></li>
+					<li><a class="nav-link scrollto" th:href="@{/donors}">Donors</a></li>
+					<li><a class="nav-link scrollto" th:href="@{/contactus}">Contact</a></li>
+					<li><a class="btn btn-primary" th:href="@{/donation/add}">Donate</a></li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+
+		</div>
+	</header><!-- End Header -->

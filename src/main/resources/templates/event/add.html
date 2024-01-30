@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment/head :: headerFragment">
+    <title id="pageTitle">Event | YAF</title>
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div th:replace="fragment/sidebar :: sidebar"></div>
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div class="sidebar-color"  th:replace="fragment/notification :: notification"></div>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800"><span th:text="${action == 'add'} ? 'Add' : 'Update'"/>  Event</h1>
+
+                <!-- Your event creation form goes here -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Event creation form -->
+                        <form th:action="'/auth/admin/event/'+${action}" method="post">
+                            <input hidden readonly th:value="${event != null} ? ${event.getId()}" name="id">
+                            <!-- Event Title -->
+                            <div class="form-group">
+                                <label for="title">Event Title</label>
+                                <input type="text" class="form-control" id="title" name="title"
+                                       th:value="${event != null} ? ${event.title}"
+                                       required>
+                            </div>
+
+                            <!-- Event Date -->
+                            <div class="form-group">
+                                <label for="eventDate">Event Date</label>
+                                <input type="date" class="form-control" id="eventDate" name="eventDate"
+                                       th:value="${event != null} ? ${event.eventDate}"
+                                       required>
+                            </div>
+
+                            <!-- Event Location -->
+                            <div class="form-group">
+                                <label for="location">Event Location</label>
+                                <input type="text" class="form-control" id="location" name="location"
+                                       th:value="${event != null} ? ${event.location}"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Event Description</label>
+
+                                <!-- If event is not null -->
+                                <textarea class="form-control" id="eventDescription" name="description" rows="4"
+                                          th:if="${event != null}" th:field="*{event.description}" required></textarea>
+
+                                <!-- If event is null -->
+                                <textarea class="form-control" id="description" name="description" rows="4"
+                                          th:if="${event == null}" required></textarea>
+                            </div>
+
+                            <button class="btn btn-warning" onclick="window.location.href='/auth/admin/event/list'" type="button">Cancel</button>
+                            <button type="submit" class="btn btn-primary"><span th:text="${action == 'add'} ? 'Add' : 'Update'"/>  Event</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <div th:replace="fragment/footer :: footer"></div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<div th:replace="fragment/script :: script"></div>
+</body>
+
+</html>

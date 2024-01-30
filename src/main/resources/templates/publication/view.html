@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PDF Viewer</title>
+</head>
+<body>
+
+<object th:attr="'data:'/pdf/' + ${id}, type:'application/pdf', width:'100%', height:'600px'" style="min-height: 600px;"></object>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="fragment/head :: headerFragment">
+    <title id="pageTitle">Donation | YAF</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .donor-list {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .donor-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 10px 20px;
+            padding: 10px;
+            background-color: #fff;
+            flex: 0 1 calc(33.33% - 20px);
+            transition: background-color 0.3s;
+        }
+
+        .donor-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .comments {
+            overflow: hidden;
+            position: relative;
+            max-height: 72px; /* Three lines of text */
+            transition: max-height 0.3s ease-in-out;
+            word-wrap: break-word;
+            white-space: pre-line;
+        }
+
+        .read-more-checkbox {
+            display: none;
+        }
+
+        .read-more-label {
+            display: none;
+            margin-top: 10px;
+            color: #0070ba;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        .read-more-checkbox:checked + .comments {
+            max-height: none;
+        }
+
+        .read-more-checkbox:checked + .comments + .read-more-label {
+            color: #003087;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+<div id="wrapper">
+<!-- Sidebar -->
+    <div th:replace="fragment/sidebar :: sidebar"></div>
+<!-- Page Wrapper -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+ <!-- Topbar -->
+            <div class="sidebar-color"  th:replace="fragment/notification :: notification"></div>
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Donor List</h1>
+
+                <!-- Donor List -->
+                <div class="donor-list" th:each="br, index: ${donation}">
+                    <!-- Donor Item -->
+                    <div class="donor-item">
+                        <h5>
+                            <span th:text="${index.count}"></span>
+                            <span>. </span>
+                            <span th:text="${br.firstName}"></span>
+                            <span th:text="${br.lastName}"></span></h5>
+                        <p>Email: <span th:text="${br.email}"></span></p>
+                        <p>Address:
+                            <span th:text="${br.streetAd1}"></span>,
+                            <span th:text="${br.city}"></span>,
+                            <span th:text="${br.state}"></span>,
+                            <span th:text="${br.postal}"></span>,
+                            <span th:text="${br.country}"></span></p>
+                        <p>Phone: <span th:text="${br.phoneNumber}"></span></p>
+                        <div class="comments">
+                            <p class="sticky-note">Comments: <span th:text="${br.comments}"></span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Add more donor items as needed -->
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<div th:replace="fragment/script :: script"></div>
+</body>
+
+</html>

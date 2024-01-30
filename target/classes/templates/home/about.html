@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="generalFragment/header :: generalFragment">	
+</head>
+<body>
+
+	<!-- ======= Header ======= -->
+	<div th:replace="generalFragment/navBar :: navbar"></div><!-- End Header -->
+
+	<!-- ======= Inner Banner ======= -->
+
+	<div class="section-wrap section-wrap-background inner-banner " style="background-image: url('assets/img/programs.jpg');">
+
+		<div class="container">
+
+			<div class="inner-banner-content">
+
+				<h1>About <span>Us</span></h1>
+
+				<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+					<ol class="breadcrumb inner-banner-breadcrumb">
+
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+
+						<li class="breadcrumb-item active" aria-current="page">About Us</li>
+
+					</ol>
+
+				</nav>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- End Inner Banner -->
+	<!--  ======= about section ======= -->
+	<section class="section-wrap d-flex align-items-center">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-6 d-flex flex-column justify-content-center pr-3">
+
+					<div class="pe-5">
+						
+						<h2>Our Highest Ambition is to Help <span>People</span></h2>
+
+						<p class="lead mt-3">By making a donation, you will be supporting our young people and creating stronger, more resilient future generations.</p>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con</p>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-6">
+
+					<img src="/img/student.jpg" class="img-fluid" alt="young assets foundation">
+
+				</div>
+
+			</div>
+
+			<div class="row section-wrap-top text-center">
+
+			<div class="heading">
+				
+				<div class="col-lg-12">
+					
+					<h2>Mission & <span>Vision</span></h2>
+
+					<p>Put young people from CALD communities at the front of development and change for themselves and their own communities for better integration with the wider society.</p>
+
+				</div>
+
+			</div>
+
+			<div class="row mt-5">
+				
+				<div class="col-lg-4">
+					
+					<img src="/img/graduation.png" alt="young assets foundation">
+
+					<h6 class="mt-3">Uplift Youth</h6>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut </p>
+
+				</div>
+
+				<div class="col-lg-4">
+					
+					<img src="/img/leadership.png" alt="young assets foundation">
+
+					<h6 class="mt-3">Leadership</h6>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut </p>
+
+				</div>
+
+				<div class="col-lg-4">
+					
+					<img src="/img/sharing.png" alt="young assets foundation">
+
+					<h6 class="mt-3">Two way learning Approach</h6>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut </p>
+
+				</div>
+
+
+			</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section><!-- End About -->
+<!-- end about section -->
+<!-- ======= Footer Section======= -->
+<footer class="footer-wrap text-white">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+
+					<img src="/img/logo.png" class="footer-logo" alt="yaf logo">
+
+					<p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim</p>
+
+				</div>
+
+				<div class="col-lg-3 col-md-12 mb-4 mb-lg-0 offset-lg-1">
+
+					<h6>Quick Links</h6>
+
+					<ul class="list-group mt-3">
+						<li class="list-group-item"><a href="#">Privacy Policy</a></li>
+						<li class="list-group-item"><a href="#">Terms & Conditions</a></li>
+						<li class="list-group-item"><a href="#">Site Map</a></li>
+						<li class="list-group-item"><a href="#">About us</a></li>
+						<li class="list-group-item"><a href="#">Contact us</a></li>
+					</ul>
+
+				</div>
+
+				<div class="col-lg-4 col-md-12">
+
+					<h6>Contact Details</h6>
+
+					<ul class="list-group mt-3">
+
+						<li class="list-group-item"><i class="bi bi-pin-map-fill me-2"></i>9 Belgium Avenue, Richmond VIC 3121, Australia</li>
+						<li class="list-group-item"><i class="bi bi-telephone-fill me-2"></i>+61 4524587368</li>
+						<li class="list-group-item"><i class="bi bi-envelope-fill me-2"></i>yaf@gmail.com</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="border mt-4 mb-4"></div>
+
+			<p >&copy;  2023 Young Assets Foundations,  All rights reserved</p>
+
+
+		</div>
+
+	</footer>
+
+	<div th:replace="fragment/script :: script"></div>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>
