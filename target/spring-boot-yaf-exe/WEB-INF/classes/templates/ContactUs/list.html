@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="fragment/head :: headerFragment">
+    <title id="pageTitle">Event | YAF</title>
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="sidebar-color" th:replace="fragment/sidebar :: sidebar"></div>
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="fragment/notification :: notification"></div>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">
+                    Message Box
+                    
+                </h1>
+
+                <!-- Event List -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Event Cards -->
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                         <th>S.No</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr th:each="br,index :${contact}">
+                                        <td th:text="${index.count}"></td>
+                                        <td th:text="${br.fullname}"></td>
+                                        <td th:text="${br.email}"></td>
+                                        <td th:text="${br.phoneNumber}"></td>
+                                        <td th:text="${br.subject}"></td>
+                                        <td th:text="${br.message}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+        <div th:replace="fragment/footer :: footer"></div>
+
+        <!-- Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+
+<div th:replace="fragment/script :: script"></div>
+</body>
+
+</html>

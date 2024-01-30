@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paypal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type="text/css">
+        .transform(@attr) {
+            transform: @attr;
+            -o-transform: @attr;
+            -ms-transform: @attr;
+            -moz-transform: @attr;
+            -webkit-transform: @attr;
+        }
+        .transition(@attr) {
+            transition: @attr;
+            -o-transition: @attr;
+            -ms-transition: @attr;
+            -moz-transition: @attr;
+            -webkit-transition: @attr;
+        }
+        .noselect {
+            user-select: none;
+            -o-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Raleway");
+        .donation_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            position: absolute;
+            top: 25%;
+            left: 45%;
+            font-family: "Raleway", sans-serif;
+            padding: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            background: #f5f5f5;
+            .transform(translateX(-50%) translateY(-50%));
+            .transition(all 0.3s);
+            &:hover {
+                box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.2);
+                background: #f0f0f0;
+            }
+            > .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+                font-size: 25px;
+                .noselect;
+            }
+            > .single_amount_wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 30px 20px;
+                > .single_amount {
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    border-radius: 25px;
+                    color: #fff;
+                    background: #0070ba;
+                    cursor: pointer;
+                    &:hover {
+                        background: #003087;
+                    }
+                }
+            }
+            > .amount_wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
+                > input,
+                > .suffix {
+                    padding: 8px;
+                    border: 0;
+                    font-weight: bold;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+                    background: #fff;
+                }
+                > input {
+                    border-radius: 8px 0 0 8px;
+                    border-right: 0;
+                    outline: none;
+                }
+                > .suffix {
+                    border-radius: 0 8px 8px 0;
+                    .noselect;
+                }
+            }
+            > a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 25px;
+                padding: 15px 25px;
+                border: 0;
+                color: #fff;
+                font-size: 16px;
+                text-decoration: none;
+                border-radius: 25px;
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0) inset,
+                0 0 0 0 rgba(0, 0, 0, 0) inset;
+                background: #0070ba;
+                .transition(all 0.3s);
+                &:hover {
+                    background: #003087;
+                }
+                &:active {
+                    box-shadow: 0 -2px 2px 0 rgba(255, 255, 255, 0.2) inset,
+                    0 2px 2px 0 rgba(0, 0, 0, 0.5) inset;
+                }
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="donation_wrapper">
+    <div class="title">Make a donation</div>
+    <div class="single_amount_wrapper">
+        <div class="single_amount" value="5">5$</div>
+        <div class="single_amount" value="10">10$</div>
+        <div class="single_amount" value="25">25$</div>
+        <div class="single_amount" value="50">50$</div>
+    </div>
+    <div class="amount_wrapper">
+        <input type="number" value="10.00" step="0.1" min="1.00">
+        <div class="suffix">$</div>
+    </div>
+    <a href="https://www.paypal.me/" target="_blank" rel="nofollow">Donate with paypal.me</a>
+</div>
+
+<script>
+    var donate_link = 'https://www.paypal.me/rajeshpokhrel/{amount}/';
+    //Init link with input amount
+    setTimeout(function() {
+        $('.donation_wrapper > .amount_wrapper > input').trigger('change');
+    }, 20);
+    //Update link on change or input
+    $(document).on('change input', '.donation_wrapper > .amount_wrapper > input', function() {
+        $(this).val(parseFloat($(this).val()).toFixed(2));
+        $(this).parent().parent().find('> a').attr('href', donate_link.replace('{amount}', parseFloat($(this).val()).toFixed(2)));
+    });
+    //Change amount on button click
+    $(document).on('click', '.donation_wrapper > .single_amount_wrapper > .single_amount', function() {
+        $('.donation_wrapper > .amount_wrapper > input').val(parseFloat($(this).attr('value')).toFixed(2)).trigger('change');
+    });
+</script>
+</body>
+</html>

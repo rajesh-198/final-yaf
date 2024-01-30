@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="generalFragment/header :: generalFragment">
+    <title></title></head>
+<body>
+
+<!-- ======= Header ======= -->
+<div th:replace="generalFragment/navBar :: navbar"></div><!-- End Header -->
+
+<!-- ======= Inner Banner ======= -->
+
+<div class="section-wrap section-wrap-background inner-banner "
+     style="background-image: url('img/programs.jpg');">
+
+    <div class="container">
+
+        <div class="inner-banner-content">
+
+            <h1>Donors</h1>
+
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+                <ol class="breadcrumb inner-banner-breadcrumb">
+
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+
+                    <li class="breadcrumb-item active" aria-current="page">Donors</li>
+
+                </ol>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Inner Banner -->
+<!-- ======= Donor Section======= -->
+<section class="section-wrap section-wrap-gray">
+
+    <div class="container">
+
+        
+        <div class="overlay overlay-black"></div>
+
+    <div class="container position-relative ">
+
+        <div class="row text-center">
+
+            <div class="col-lg-6 offset-lg-3">
+
+                
+                <h2 class="text-center">Our Donors</h2>
+
+        <p class="mt-3">Our Donors List</p>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 mb-5 mb-lg-0 mb-md-0" th:each="br,index :${donation}">
+
+                <div class="card program-card program-card-white d-flex flex-column h-100 ">
+
+                    <div class="card-body flex-fill">
+
+                       
+                        <!-- Card content goes here -->
+                        <h3><span th:text="${br.firstName}"></span></h3>
+                        <p class="mt-3"><span th:text="${br.lastName}"></span></p>
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+          
+
+        </div>
+
+    </div>
+
+    </div>
+        
+        
+   
+
+</section><!-- End donors--><!-- End donors-->
+
+<!-- ======= Footer Section======= -->
+<div th:replace="generalFragment/footer :: footer"></div>
+<div th:replace="fragment/script :: script"></div>
+
+</body>
+</html>

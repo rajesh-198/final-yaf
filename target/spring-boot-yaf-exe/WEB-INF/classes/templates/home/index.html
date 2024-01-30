@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="generalFragment/header :: generalFragment">
+    <title></title></head>
+<body>
+
+<div th:replace="generalFragment/navBar :: navbar"></div>
+<!-- ======= banner Section ======= -->
+<section class="d-flex align-items-center main-banner ">
+    <div class="overlay overlay-black"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center z-index-1">
+                <h1 class="text-white" data-aos="fade-up ">We back <span>young</span> people</h1>
+                <p class="text-white mt-4" data-aos="fade-up " data-aos-delay="400">It all begins with an idea. Maybe
+                    you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have
+                    a creative project to share with the world. </p>
+                <div data-aos="fade-up" data-aos-delay="800">
+                    <a href="about.html" class="text-white button-link ">Explore More<i
+                            class="bi bi-arrow-right-short ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+                <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+<!-- ======= About Section======= -->
+<section class="section-wrap d-flex align-items-center">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <img src="/img/study.png" class="img-fluid" alt="young assets foundation">
+
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+
+                <h2>Our Highest Ambition is to Help <span>People</span></h2>
+
+                <p class="lead mt-3">By making a donation, you will be supporting our young people and creating
+                    stronger, more resilient future generations.</p>
+
+                
+
+                <a th:href="@{/about}" class="button-link">Explore More<i class="bi bi-arrow-right-short ms-1"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- End About -->
+<!-- ======= Program Section======= -->
+<section class="section-wrap program-section text-white">
+
+    <div class="overlay overlay-black"></div>
+
+    <div class="container position-relative ">
+
+        <div class="row text-center">
+
+            <div class="col-lg-6 offset-lg-3">
+
+                <h2>Our <span>Programs</span></h2>
+                <p class="mt-3">Our Program List</p>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 mb-5 mb-lg-0 mb-md-0" th:each="br,index :${program}">
+
+                <div class="card program-card program-card-white d-flex flex-column h-100 ">
+
+                    <div class="card-body flex-fill">
+
+                       
+                        <!-- Card content goes here -->
+                        <h3><span th:text="${br.title}"></span></h3>
+                        <p class="mt-3"><span th:text="${br.description}"></span></p>
+                        <a th:href="'programs-single/'+${br.getId()}" class="button-link">Explore More<i
+                                class="bi bi-arrow-right-short ms-1"></i></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <a th:href="@{/programs}" class="button-link text-center text-white mt-5">View More<i
+                    class="bi bi-arrow-right-short ms-1"></i></a>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</section><!-- End programs -->
+<!-- ======= Donate Section======= -->
+<section class="section-wrap d-flex">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-5 d-flex flex-column justify-content-center">
+
+                <h3>Donate today and <br>make a real and positive difference to <span>young lives</span>.</h3>
+                <p class="lead mt-4 mb-4">By making a donation, you will be supporting our young people and creating
+                    stronger, more resilient future generations.</p>
+                <a  th:href="@{/donation/add}" class="button-link mb-5 mb-lg-0 mb-md-0">Donate Now<i
+                        class="bi bi-arrow-right-short ms-1"></i></a>
+
+            </div>
+
+            <div class="col-lg-6 offset-lg-1">
+
+                <img src="/img/student.jpg" class="img-fluid" alt="yaf student">
+
+            </div>
+
+        </div>
+
+        <div class="video-section row ">
+
+            <div class="col-lg-8 offset-lg-2">
+
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/g6P0B0c3Sjs?si=IecA3Gj3--IjN2n7"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- End donate-->
+<!-- ======= Donor Section======= -->
+<section class="section-wrap section-wrap-gray">
+
+    <div class="container">
+
+        <h2 class="text-center">Our Donors</h2>
+
+        
+        <div class="overlay overlay-black"></div>
+
+    <div class="container position-relative ">
+
+        <div class="row text-center">
+
+            <div class="col-lg-6 offset-lg-3">
+
+                
+                <p class="mt-3">Our Donors List</p>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 mb-5 mb-lg-0 mb-md-0" th:each="br,index :${donation}">
+
+                <div class="card program-card program-card-white d-flex flex-column h-100 ">
+
+                    <div class="card-body flex-fill">
+
+                       
+                        <!-- Card content goes here -->
+                        <h3><span th:text="${br.firstName}"></span></h3>
+                        <p class="mt-3"><span th:text="${br.lastName}"></span></p>
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+          
+
+        </div>
+
+    </div>
+
+    </div>
+        
+        <div class="text-center mt-3">
+
+            <a th:href="@{/donors}" class="button-link mt-5">View All<i class="bi bi-arrow-right-short ms-1"></i></a>
+
+        </div>
+    </div>
+
+</section><!-- End donors-->
+<footer th:replace="generalFragment/footer :: footer"></footer>
+<div th:replace="fragment/script :: script"></div>
+
+</body>
+</html>
