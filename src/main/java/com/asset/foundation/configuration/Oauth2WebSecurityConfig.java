@@ -59,6 +59,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/about",
             "/event",
             "/publication",
+            "/publication/list",
             "home/about",
             "/home/donors",
             "/home/contact",
@@ -69,6 +70,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/contactUs/add",
             "/publication/view/{id}",
             "/programs-single/{id}",
+            "publication/list",
             
             
             "/",
