@@ -17,7 +17,7 @@ public class AssetFoundation {
 
     @Autowired
     UserService userService;
-
+    
     public static void main(String[] args) {
         SpringApplication.run(AssetFoundation.class, args);
     }
