@@ -34,7 +34,7 @@
                     <div class="col-lg-6">
                         <!-- publication creation form -->
 <!--                        <form th:action="'/publication/upload'+${action}" method="post">-->
-                            <form th:action="'/publication/'+${action}" method="post" enctype="multipart/form-data">
+                            <form th:action="'/auth/admin/publications/'+${action}" method="post" enctype="multipart/form-data">
 
                             <input hidden readonly th:value="${publication != null} ? ${publication.getId()}" name="id">
                             <!-- publication Title -->

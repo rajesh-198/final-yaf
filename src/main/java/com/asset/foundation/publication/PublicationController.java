@@ -27,7 +27,7 @@ public class PublicationController {
     @Autowired
     private FileStorageService storageService;
 
-    @GetMapping("/publication/list")
+    @GetMapping("/publications/list")
     public String getEventListPage(Model model) {
         model.addAttribute(ParameterConstants.PARAM_PUBLICATION, storageService.findAll());
         System.out.print("\"/publication/list\"");
@@ -35,7 +35,7 @@ public class PublicationController {
     }
 
 
-    @GetMapping("/publication/view/{id}")
+    @GetMapping("/publications/view/{id}")
     public ResponseEntity<Resource> viewPdf(@PathVariable Long id) {
         byte[] pdfData = storageService.getPdfDataById(id);
         if (pdfData != null) {
@@ -50,14 +50,14 @@ public class PublicationController {
         return null;
     }
 
-    @GetMapping("/publication/add")
+    @GetMapping("/publications/add")
     public String getEventAddPage(Model model) {
         model.addAttribute(ParameterConstants.PARAM_ACTION, OperationType.ADD.getValue());
         return "/publication/add";
     }
 
 
-    @PostMapping("/publication/add")
+    @PostMapping("/publications/add")
     public String savePublication(RedirectAttributes redirectAttributes, PublicationDto publicationDto) {
         return storageService.save(redirectAttributes, publicationDto);
     }
