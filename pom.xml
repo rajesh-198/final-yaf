@@ -172,7 +172,7 @@
     </configuration>
 </plugin>
         </plugins>
-        <finalName>spring-boot-yaf-exe</finalName>
+        <finalName>YAF</finalName>
     </build>
 
 </project>
