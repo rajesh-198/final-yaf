@@ -21,20 +21,20 @@ import java.io.IOException;
 
 
 @Controller
-@RequestMapping(value = "/publication")
+@RequestMapping(value = "/auth/admin")
 public class PublicationController {
 
     @Autowired
     private FileStorageService storageService;
 
-    @GetMapping("/list")
+    @GetMapping("/publication/list")
     public String getEventListPage(Model model) {
         model.addAttribute(ParameterConstants.PARAM_PUBLICATION, storageService.findAll());
         return "/publication/list";
     }
 
 
-    @GetMapping("/view/{id}")
+    @GetMapping("/publication/view/{id}")
     public ResponseEntity<Resource> viewPdf(@PathVariable Long id) {
         byte[] pdfData = storageService.getPdfDataById(id);
         if (pdfData != null) {
@@ -49,14 +49,14 @@ public class PublicationController {
         return null;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/publication/add")
     public String getEventAddPage(Model model) {
         model.addAttribute(ParameterConstants.PARAM_ACTION, OperationType.ADD.getValue());
         return "/publication/add";
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/publication/add")
     public String savePublication(RedirectAttributes redirectAttributes, PublicationDto publicationDto) {
         return storageService.save(redirectAttributes, publicationDto);
     }

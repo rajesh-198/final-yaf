@@ -59,7 +59,6 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/about",
             "/event",
             "/publication",
-            "/publication/list",
             "home/about",
             "/home/donors",
             "/home/contact",
