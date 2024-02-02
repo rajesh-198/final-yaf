@@ -30,6 +30,7 @@ public class PublicationController {
     @GetMapping("/publication/list")
     public String getEventListPage(Model model) {
         model.addAttribute(ParameterConstants.PARAM_PUBLICATION, storageService.findAll());
+        System.out.print("\"/publication/list\"");
         return "/publication/list";
     }
 
