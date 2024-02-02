@@ -78,7 +78,7 @@ public class MainController {
     @GetMapping("/programs-single/{id}")
     public String getProgramsSingle(@PathVariable("id") Long id, Model model) {
         ProgramDto programDto = programService.findById(id);
-        model.addAttribute("imageLink", "/assets/img/image-asset.jpeg");
+        model.addAttribute("imageLink", "/img/image-asset.jpeg");
         model.addAttribute(ParameterConstants.PARAM_PROGRAM, programDto);
         return "home/programs-single";
     }

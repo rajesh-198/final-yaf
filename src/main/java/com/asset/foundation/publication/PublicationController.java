@@ -21,7 +21,7 @@ import java.io.IOException;
 
 
 @Controller
-@RequestMapping("/publication")
+@RequestMapping(value = "/publication")
 public class PublicationController {
 
     @Autowired

@@ -70,7 +70,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/contactUs/add",
             "/publication/view/{id}",
             "/programs-single/{id}",
-            "publication/list",
+            
             
             
             "/",
